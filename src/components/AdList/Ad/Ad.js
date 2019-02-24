@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Ad.less";
+import PropTypes from "prop-types";
 
 export default class Ad extends Component {
   render() {
@@ -36,3 +37,7 @@ export default class Ad extends Component {
     return <div>{craigslistAd}</div>;
   }
 }
+
+Ad.propTypes = {
+  searchResults: PropTypes.array.isRequired
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Searchfield.less";
+import PropTypes from "prop-types";
 
 // -----------Material-UI------------
 import TextField from "material-ui/TextField";
@@ -18,3 +19,9 @@ export default function Searchfield(props) {
     </div>
   );
 }
+
+Searchfield.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  gig: PropTypes.object.isRequired
+};

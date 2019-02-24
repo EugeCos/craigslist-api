@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { dropdownLists } from "./lists";
+import PropTypes from "prop-types";
 
 // ---------Material-UI----------
 import DropDownMenu from "material-ui/DropDownMenu";
@@ -73,3 +74,9 @@ export default class Dropdowns extends Component {
     );
   }
 }
+
+Dropdowns.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+  gig: PropTypes.object.isRequired
+};

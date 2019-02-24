@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "./AdList.less";
+import PropTypes from "prop-types";
 
 // --------Components---------
 import Ad from "./Ad/Ad";
@@ -28,3 +29,8 @@ export default class AdList extends Component {
     );
   }
 }
+
+AdList.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+};

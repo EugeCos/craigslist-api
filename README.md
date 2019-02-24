@@ -1,21 +1,53 @@
-# ES6 React boilerplate
+## Synopsis
 
-Simple and optimized React boilerplate. Features include:
+A serverless web-app that pulls Top-30 adds from Craigslist's Toronto Gigs section and displays them in a user friendly layout. Query option is provided, user can either input it from keyboard or choose a dropdown item.
 
-- [x] React
-- [x] ECMAScript 6 and JSX support
-- [x] React Router
-- [x] Hot Module Replacement using [react-hot-loader](https://github.com/gaearon/react-hot-loader)
-- [x] ES6 linting with continuous linting on file change
-- [x] LESS support
-- [x] Material UI
-- [x] Font Awesome
-- [x] lodash
-- [x] Axios
+## Live Demo
 
-## Starting the dev server
+Link to App: [Toronto Gigs from Craigslist](https://craigslist-toronto-gigs.herokuapp.com/)
 
-1. `https://github.com/EugeCos/react-app-boilerplate.git`
-2. Run `npm install`
-3. Start the dev server using `npm start`
-4. Open [http://localhost:3000](http://localhost:3000)
+_Please wait for up to 15 seconds as the free Heroku server fires up for the app._
+
+## Installation
+
+$git clone https://github.com/EugeCos/craigslist-api.git<br />$ cd PROJECT <br />
+
+\$ npm install
+
+## Start & watch
+
+\$ npm start
+
+## Simple build for production
+
+\$ npm run build
+
+## API Reference (search page source)
+
+https://toronto.craigslist.ca/search/ggg
+<br />
+
+---
+
+## Tools
+
+- ReactJS - main library
+- LESS - CSS preprocessing
+- Webpack - watch and compile LESS files
+- Fetch API - API calls
+- Material UI - framework for some front-end elements
+- Moment - for date and time display
+
+---
+
+## Timeline
+
+February 23, 2019
+
+## Contributors
+
+- Eugene Costov // eugene.costov@gmail.com
+
+## Licence
+
+_Hacker News Light_ is available under MIT.
