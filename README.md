@@ -50,4 +50,4 @@ February 23, 2019
 
 ## Licence
 
-_Hacker News Light_ is available under MIT.
+_Toronto Gigs from Craigslist_ is available under MIT.
