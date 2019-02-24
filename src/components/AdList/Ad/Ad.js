@@ -3,38 +3,36 @@ import "./Ad.less";
 
 export default class Ad extends Component {
   render() {
-    const ad = {
-      internalId: 1,
-      title: "Good ad"
-    };
+    let craigslistAd = this.props.searchResults.map((ad, index) => {
+      return (
+        <a
+          href={ad.link}
+          target="_blank"
+          style={{ textDecoration: "none" }}
+          key={index}
+        >
+          <div className="ad-container">
+            {/* Add picture  */}
+            <img src={ad.image} alt="ad" className="ad-picture" />
 
-    return (
-      <a
-        href={`/`}
-        target="_blank"
-        style={{ textDecoration: "none" }}
-        key={ad.internalId}
-      >
-        <div className="ad-container">
-          {/* Add picture  */}
-          <img
-            src="https://images.craigslist.org/00505_fqNoVns3vij_50x50c.jpg"
-            alt="ad"
-            className="ad-picture"
-          />
+            {/* ad title and location */}
+            <div className="ad-title-wrapper">
+              <p
+                className="ad-title"
+                dangerouslySetInnerHTML={{ __html: ad.title }}
+              />
+              <div className="ad-location-and-date">
+                <p dangerouslySetInnerHTML={{ __html: ad.location }} />
 
-          {/* ad title and location */}
-          <div className="ad-title-wrapper">
-            <div className="ad-title">{ad.title}</div>
-            <div className="ad-location-and-date">
-              <p>(Toronto)</p>
-
-              {/* Only show below div if screen width is > 640px (CSS setup) */}
-              <p className="ad-date">Ferbruary 9</p>
+                {/* Only show below div if screen width is > 640px (CSS setup) */}
+                <p className="ad-date">{ad.date}</p>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    );
+        </a>
+      );
+    });
+
+    return <div>{craigslistAd}</div>;
   }
 }

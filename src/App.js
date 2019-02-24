@@ -16,6 +16,7 @@ class App extends Component {
       location: { name: "All Toronto", url: "" },
       gig: { name: "All", url: "/ggg" },
       searchValue: "",
+      loading: false,
       searchResults: []
     };
   }
@@ -27,14 +28,15 @@ class App extends Component {
   handleDropdownChange = (e, i, value, dropdownName, url) => {
     this.setState(
       {
-        [dropdownName]: { name: value, url: dropdownLists[url][i].url }
+        [dropdownName]: { name: value, url: dropdownLists[url][i].url },
+        loading: true
       },
       () => this.craigslistSearch()
     );
   };
 
   handleSearchInputChange = e => {
-    this.setState({ searchValue: e.target.value }, () =>
+    this.setState({ searchValue: e.target.value, loading: true }, () =>
       this.craigslistSearch()
     );
   };
@@ -59,11 +61,11 @@ class App extends Component {
   saveCraigslistData = response => {
     // Step 1. Parse response text into html
     const parser = new DOMParser();
+    // const doc = parser.parseFromString(response, "text/html");
     const doc = parser.parseFromString(response, "text/html");
 
     // Step 2. Create an array of all results (<li> nodes)
     const listElements = Array.from(doc.querySelectorAll(".rows li"));
-    console.log(listElements);
 
     // Step 3. Filter array, leaving only date, title, location and image
     let adsArray = listElements.map(ad => {
@@ -81,6 +83,11 @@ class App extends Component {
         // Set image to pacifism icon if there are no images in the ad
         image = "https://image.flaticon.com/icons/svg/366/366423.svg";
       }
+
+      if (location.indexOf("maptag") > -1) {
+        location = "location not indicated by poster";
+      }
+
       return {
         date,
         title,
@@ -92,11 +99,13 @@ class App extends Component {
 
     // Step 4. Send filtered array to App state (only first 30 ads)
     this.setState({
-      searchResults: adsArray.slice(0, 30)
+      searchResults: adsArray.slice(0, 30),
+      loading: false
     });
   };
 
   render() {
+    const { location, gig, searchValue, loading, searchResults } = this.state;
     return (
       <div className="App">
         <Navbar />
@@ -104,17 +113,17 @@ class App extends Component {
         <div className="app-content">
           <Dropdowns
             handleChange={this.handleDropdownChange}
-            location={this.state.location.name}
-            gig={this.state.gig.name}
+            location={location.name}
+            gig={gig.name}
           />
           <Searchfield
             handleChange={this.handleSearchInputChange}
-            gig={this.state.gig.name}
-            searchValue={this.state.searchValue}
+            gig={gig.name}
+            searchValue={searchValue}
           />
           <hr className="hr-styled" />
         </div>
-        <AdList />
+        <AdList searchResults={searchResults} loading={loading} />
       </div>
     );
   }

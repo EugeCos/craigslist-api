@@ -9,5 +9,9 @@
 }
 
 .dropdowns-wrapper {
-    display: flex
+    display: flex;
+
+    @media screen and (max-width: 640px) {
+        flex-direction: column
+    }
 }
