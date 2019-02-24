@@ -1,7 +1,8 @@
 export const dropdownLists = {
   locations: [
     {
-      name: "All Toronto"
+      name: "All Toronto",
+      url: ""
     },
     {
       name: "Brampton",
@@ -29,66 +30,42 @@ export const dropdownLists = {
     }
   ],
 
-  serviceTypes: [
+  gigs: [
     {
-      name: "Gigs",
-      url: "ggg"
-    },
-    {
-      name: "Events",
-      url: "eee"
-    }
-  ],
-
-  eventList: [
-    {
-      name: "All"
-    },
-    {
-      name: "Classes",
-      url: "cls"
-    },
-    {
-      name: "Events",
-      url: "eve"
-    }
-  ],
-
-  gigList: [
-    {
-      name: "All"
+      name: "All",
+      url: "/ggg"
     },
     {
       name: "Computer gigs",
-      url: "cpg"
+      url: "/cpg"
     },
     {
       name: "Creative gigs",
-      url: "crg"
+      url: "/crg"
     },
     {
       name: "Crew gigs",
-      url: "cwg"
+      url: "/cwg"
     },
     {
       name: "Domestic gigs",
-      url: "dmg"
+      url: "/dmg"
     },
     {
       name: "Event gigs",
-      url: "evg"
+      url: "/evg"
     },
     {
       name: "Labor gigs",
-      url: "lbg"
+      url: "/lbg"
     },
     {
       name: "Talent gigs",
-      url: "tlg"
+      url: "/tlg"
     },
     {
       name: "Writing gigs",
-      url: "wrg"
+      url: "/wrg"
     }
   ]
 };

@@ -16,14 +16,8 @@ const styles = {
 
 export default class Dropdowns extends Component {
   render() {
-    const {
-      location,
-      event,
-      gig,
-      selectedServiceType,
-      handleChange
-    } = this.props;
-    const { locations, serviceTypes, eventList, gigList } = dropdownLists;
+    const { location, gig, handleChange } = this.props;
+    const { locations, gigs } = dropdownLists;
 
     const locationMenu = locations.map(location => {
       return (
@@ -34,25 +28,8 @@ export default class Dropdowns extends Component {
         />
       );
     });
-    const serviceTypeMenu = serviceTypes.map(service => {
-      return (
-        <MenuItem
-          key={service.name}
-          value={service.name}
-          primaryText={service.name}
-        />
-      );
-    });
-    const eventTypeMenu = eventList.map(event => {
-      return (
-        <MenuItem
-          key={event.name}
-          value={event.name}
-          primaryText={event.name}
-        />
-      );
-    });
-    const gigTypeMenu = gigList.map(gig => {
+
+    const gigTypeMenu = gigs.map(gig => {
       return (
         <MenuItem key={gig.name} value={gig.name} primaryText={gig.name} />
       );
@@ -60,52 +37,36 @@ export default class Dropdowns extends Component {
 
     return (
       <div className="dropdowns-container">
-        {/* List of GTA locations */}
-        <DropDownMenu
-          value={location}
-          onChange={(e, i, value) => handleChange(e, i, value, "location")}
-          autoWidth={false}
-          style={styles.customWidth}
-        >
-          {locationMenu}
-        </DropDownMenu>
-        <br />
+        <p>Select your GTA area and gig type</p>
 
-        {/* List of service types (events or gigs) */}
-        <DropDownMenu
-          value={selectedServiceType}
-          onChange={(e, i, value) =>
-            handleChange(e, i, value, "selectedServiceType", value)
-          }
-          autoWidth={false}
-          style={styles.customWidth}
-        >
-          {serviceTypeMenu}
-        </DropDownMenu>
-        <br />
-
-        {/* Display Event list or Gig list depending on what was selected */}
-        {selectedServiceType === "Gigs" ? (
-          // List of gigs
+        <div className="dropdowns-wrapper">
+          {/* List of GTA locations */}
           <DropDownMenu
-            value={gig}
-            onChange={(e, i, value) => handleChange(e, i, value, "gig")}
+            value={location}
+            onChange={(e, i, value) =>
+              handleChange(e, i, value, "location", "locations")
+            }
             autoWidth={false}
             style={styles.customWidth}
+            underlineStyle={{ borderColor: "#34495e" }}
+            iconStyle={{ fill: "#ff0000" }}
+          >
+            {locationMenu}
+          </DropDownMenu>
+          <br />
+
+          {/* List of gigs */}
+          <DropDownMenu
+            value={gig}
+            onChange={(e, i, value) => handleChange(e, i, value, "gig", "gigs")}
+            autoWidth={false}
+            style={styles.customWidth}
+            underlineStyle={{ borderColor: "#34495e" }}
+            iconStyle={{ fill: "#ff0000" }}
           >
             {gigTypeMenu}
           </DropDownMenu>
-        ) : (
-          // List of events
-          <DropDownMenu
-            value={event}
-            onChange={(e, i, value) => handleChange(e, i, value, "event")}
-            autoWidth={false}
-            style={styles.customWidth}
-          >
-            {eventTypeMenu}
-          </DropDownMenu>
-        )}
+        </div>
       </div>
     );
   }
