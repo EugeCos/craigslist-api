@@ -49,7 +49,8 @@ export default class Dropdowns extends Component {
             autoWidth={false}
             style={styles.customWidth}
             underlineStyle={{ borderColor: "#34495e" }}
-            iconStyle={{ fill: "#ff0000" }}
+            selectedMenuItemStyle={{ color: "#0abde3" }}
+            iconStyle={{ fill: "#3498db" }}
           >
             {locationMenu}
           </DropDownMenu>
@@ -62,7 +63,8 @@ export default class Dropdowns extends Component {
             autoWidth={false}
             style={styles.customWidth}
             underlineStyle={{ borderColor: "#34495e" }}
-            iconStyle={{ fill: "#ff0000" }}
+            selectedMenuItemStyle={{ color: "#0abde3" }}
+            iconStyle={{ fill: "#3498db" }}
           >
             {gigTypeMenu}
           </DropDownMenu>

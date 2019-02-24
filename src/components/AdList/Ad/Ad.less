@@ -1,0 +1,70 @@
+.ad-container {
+    display: flex;
+    position: relative;
+    border: 1px solid rgba(207, 191, 191, 0.582);
+    background: #be7e6013;
+    margin: 15px 100px;
+    padding: 3px 10px;
+    height: 50px;
+    align-items: center;
+    box-shadow: 1px 0px 10px 1px rgba(186, 155, 207, 0.3);
+    color: #333;
+
+    @media screen and (max-width: 640px) {
+        height: 65px;
+        padding: 7px 8px;
+    }
+
+    &:hover {
+        background: #be643a1f;
+        cursor: pointer;
+        border: 1px solid rgba(207, 191, 191, 0.882);
+    }
+}
+
+.ad-picture {
+    margin: 0 15px 0 5px;
+    width: 40px;
+    border-radius: 4px;
+
+    @media screen and (max-width: 640px) {
+        display: none;
+    }
+}
+
+.ad-title-wrapper {
+    @media screen and (max-width: 640px) {
+        margin-left: 8px;
+    }
+}
+
+.ad-title {
+    font-size: 105%;
+    margin-top: 5px;
+    line-height: 15px;
+
+    @media screen and (max-width: 640px) {
+        font-size: 100%;
+        line-height: 18px;
+    }
+}
+
+.ad-location-and-date {
+    p {
+        display: inline;
+        margin-right: 40px;
+        font-size: 80%;
+
+        @media screen and (max-width: 1024px) {
+            margin-right: 25px;
+        }
+    }
+}
+
+.ad-date {
+    color: grey;
+
+    @media screen and (max-width: 640px) {
+        display: none !important;
+    }
+}

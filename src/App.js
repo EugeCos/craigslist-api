@@ -7,6 +7,7 @@ import "./css/global.less";
 import Navbar from "./components/Navbar/Navbar";
 import Dropdowns from "./components/Dropdowns/Dropdowns";
 import Searchfield from "./components/Searchfield/Searchfield";
+import AdList from "./components/AdList/AdList";
 
 class App extends Component {
   constructor(props) {
@@ -111,7 +112,9 @@ class App extends Component {
             gig={this.state.gig.name}
             searchValue={this.state.searchValue}
           />
+          <hr className="hr-styled" />
         </div>
+        <AdList />
       </div>
     );
   }
