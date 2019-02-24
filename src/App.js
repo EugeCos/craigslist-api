@@ -43,6 +43,7 @@ class App extends Component {
 
   craigslistSearch = () => {
     const { location, gig, searchValue } = this.state;
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
     let url = `https://toronto.craigslist.org/search${location.url}${gig.url}`;
 
     // If there is user input, add it to the query
@@ -50,7 +51,7 @@ class App extends Component {
       url += `?query=${searchValue}&is_paid=all`;
     }
 
-    fetch(url)
+    fetch(proxyurl + url)
       .then(response => response.text())
       .then(contents => this.saveCraigslistData(contents))
       .catch(() =>
